@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Evasión Publicidad - Website
 
-## Getting Started
+Réplica moderna de la página web de Evasión Publicidad, una agencia de publicidad en Granada.
 
-First, run the development server:
+## 🚀 Características
+
+- ⚡ **Next.js 15** con App Router
+- 🎨 **Tailwind CSS 4** para estilos modernos
+- ✨ **Framer Motion** para animaciones fluidas
+- 📱 **Diseño responsive** optimizado para todos los dispositivos
+- 🎯 **SEO optimizado** con metadata completa
+- 🔥 **TypeScript** para código más robusto
+
+## 📦 Stack Tecnológico
+
+- **Framework**: Next.js 15.5
+- **Estilos**: Tailwind CSS 4
+- **Animaciones**: Framer Motion
+- **Iconos**: Lucide React + React Icons
+- **Lenguaje**: TypeScript
+- **Fuente**: Poppins (Google Fonts)
+
+## 🛠️ Instalación
 
 ```bash
+# Instalar dependencias
+npm install
+
+# Ejecutar servidor de desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Construir para producción
+npm run build
+
+# Iniciar servidor de producción
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📁 Estructura del Proyecto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+evasionpublicidad-web/
+├── app/
+│   ├── components/        # Componentes reutilizables
+│   │   ├── Header.tsx
+│   │   └── Footer.tsx
+│   ├── sections/          # Secciones de página
+│   │   ├── Hero.tsx
+│   │   └── Services.tsx
+│   ├── blog/              # Rutas del blog
+│   ├── proyectos/         # Rutas de proyectos
+│   ├── layout.tsx         # Layout principal
+│   ├── page.tsx           # Página de inicio
+│   └── globals.css        # Estilos globales
+├── lib/                   # Utilidades
+├── public/                # Archivos estáticos
+│   └── images/
+└── README.md
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 Paleta de Colores
 
-## Learn More
+- **Primary**: `#ff6b35` (Naranja)
+- **Secondary**: `#004e89` (Azul)
+- **Accent**: `#f77f00` (Naranja oscuro)
+- **Gray**: `#6c757d`
 
-To learn more about Next.js, take a look at the following resources:
+## 🚧 Secciones Implementadas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [x] Header/Navbar responsive con menú desplegable
+- [x] Hero principal con animaciones
+- [x] Sección de servicios (4 cards)
+- [x] Footer completo con información de contacto
+- [ ] Sección de proyectos destacados
+- [ ] Galería con filtros
+- [ ] Testimonios/Reseñas
+- [ ] Formulario de contacto
+- [ ] Sistema de blog
+- [ ] Newsletter
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📱 Responsive Design
 
-## Deploy on Vercel
+El sitio está optimizado para:
+- 📱 Mobile (< 768px)
+- 📱 Tablet (768px - 1024px)
+- 💻 Desktop (> 1024px)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🌐 Despliegue
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Recomendado: **Vercel**
+
+```bash
+# Desplegar en Vercel
+vercel
+```
+
+También compatible con:
+- Netlify
+- Cloudflare Pages
+- AWS Amplify
+
+## 📝 Licencia
+
+Proyecto educativo - Réplica de [evasionpublicidad.es](https://evasionpublicidad.es)
+
+## 🤝 Contribuir
+
+Este es un proyecto de aprendizaje. Las sugerencias son bienvenidas.
+
+---
+
+**#evádeteycrea** ✨

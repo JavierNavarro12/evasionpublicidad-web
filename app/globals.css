@@ -2,25 +2,91 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+  --primary: #8cc63f;
+  --secondary: #6cb33f;
+  --accent: #a3d55d;
+  --gray: #6c757d;
+  --yellow-circle: #fef3c7;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-gray: var(--gray);
+  --font-sans: var(--font-poppins);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimización de rendimiento */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+/* Utilidades personalizadas */
+.text-gradient {
+  color: var(--primary);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  padding: 0.875rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+}
+
+.btn-primary:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(140, 198, 63, 0.3);
+}
+
+/* Animación CSS nativa para el scroll dot */
+@keyframes scroll-dot {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(16px);
+  }
+}
+
+.animate-scroll-dot {
+  animation: scroll-dot 2s ease-in-out infinite;
+}
+
+/* Optimizaciones para animaciones */
+[class*="motion-"] {
+  will-change: transform, opacity;
+}
+
+/* Mejora de rendimiento para elementos con blur */
+.blur-2xl, .blur-3xl {
+  transform: translateZ(0);
+  will-change: auto;
 }
