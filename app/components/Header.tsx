@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
@@ -29,10 +30,13 @@ export default function Header() {
     { name: "Encuéntranos", href: "/contacto" },
   ];
 
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white">
+    <header className={`fixed top-0 left-0 right-0 ${isHome ? "z-20" : "z-[1000]"} bg-white h-20 md:h-24`}>
       {/* Logo posicionado absolutamente */}
-      <Link href="/" className="absolute top-8 left-8 z-10">
+      <Link href="/" className="absolute top-4 md:top-5 left-8 z-10">
         <Image 
           src="/images/logo.header.svg" 
           alt="Evasión Publicidad" 
@@ -44,7 +48,7 @@ export default function Header() {
       </Link>
 
       {/* Iconos posicionados absolutamente */}
-      <div className="absolute top-8 right-8 z-10 hidden md:flex items-center gap-8">
+      <div className="absolute top-4 md:top-5 right-8 z-10 hidden md:flex items-center gap-8">
             <a
               href="https://facebook.com"
               target="_blank"
@@ -77,7 +81,7 @@ export default function Header() {
 
       {/* Mobile Menu Button */}
       <button
-        className="md:hidden absolute top-8 right-8 text-black"
+        className="md:hidden absolute top-4 right-8 text-black"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
         {isMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}

@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 
 export default function Hero() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [isAtTop, setIsAtTop] = useState(true);
   
   const words = [
     "lo que te falta",
@@ -24,10 +25,20 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [words.length]);
 
-  return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-white pt-40 pb-20">
+  useEffect(() => {
+    const handleScroll = () => {
+      const y = typeof window !== "undefined" ? window.scrollY : 0;
+      setIsAtTop(y <= 20); // por encima del header solo en el tope
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-      <div className="container mx-auto px-12 md:px-16 relative z-10">
+  return (
+    <section className="relative min-h-screen flex items-center overflow-visible bg-white pt-40 pb-20">
+
+      <div className="container mx-auto px-12 md:px-16 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start max-w-[1400px] mx-auto">
           {/* Contenido izquierdo */}
           <motion.div
@@ -86,10 +97,10 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="relative flex justify-center items-start lg:justify-end pr-0 lg:pr-12"
+            className="relative pointer-events-none flex justify-center items-start lg:justify-end pr-0 lg:pr-12"
           >
-            {/* GIF posicionado absolutamente */}
-            <div className="absolute top-[-75px] right-[-150px] w-[600px] h-[600px] flex items-center justify-center z-30">
+            {/* GIF por encima del header */}
+            <div className={`absolute top-[-100px] md:top-[-80px] right-[-150px] w-[600px] h-[600px] flex items-center justify-center ${isAtTop ? "z-[1200]" : "z-0"} pointer-events-none`}>
               <Image
                 src="/images/gif-pagina-principal.gif"
                 alt="Mockups móviles"

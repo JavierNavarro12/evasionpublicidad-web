@@ -1,17 +1,11 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import Hero from "./sections/Hero";
-import Services from "./sections/Services";
+import About from "./sections/About";
 
 export default function Home() {
   return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <Services />
-      </main>
-      <Footer />
-    </>
+    <main>
+      <Hero />
+      <About />
+    </main>
   );
 }
